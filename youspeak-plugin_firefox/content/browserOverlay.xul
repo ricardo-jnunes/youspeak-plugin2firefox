@@ -1,0 +1,51 @@
+﻿<?xml version="1.0"?>
+
+<?xml-stylesheet type="text/css" href="chrome://global/skin/" ?>
+<?xml-stylesheet type="text/css"
+  href="chrome://yousound/skin/browserOverlay.css" ?>
+
+<!DOCTYPE overlay SYSTEM
+  "chrome://yousound/locale/browserOverlay.dtd">
+
+<overlay id="yousound-browser-overlay"
+  xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+  <script type="application/x-javascript" src="chrome://yousound/content/jquery.js"></script>
+  <script type="application/x-javascript" src="chrome://yousound/content/InspectElement.js"></script>
+  <script type="application/x-javascript" src="chrome://yousound/content/InspectElement_bind.js"></script>
+  <script type="application/x-javascript" src="chrome://yousound/content/functionsYouSound.js"></script>
+  <script type="application/x-javascript" src="chrome://yousound/content/browserOverlay.js"></script>
+  <script type="application/x-javascript" src="chrome://yousound/content/speakClient.js"></script>
+
+  <toolbox>
+	<toolbar id="yousound-toolbar">
+		<toolbarbutton id="yousound-label-init" accesskey="I" label="Inserir o JS"
+			oncommand="YouSoundChrome.InsertJS.run();"/>
+		<toolbarbutton id="yousound-label" accesskey="W" label="Worker"
+			oncommand="YouSoundChrome.YouSpeak.say(event);"/>
+		<toolbarbutton id="yousound-label" accesskey="Y" label="You Sound"
+			oncommand="YouSoundChrome.YouSpeak.hello(event);"/>
+		<toolbarbutton id="yousound-label-copy" label="Copy"
+			oncommand="YouSoundChrome.BrowserOverlay.YSCopy();"/>
+			<groupbox>
+				<caption label="Modo"/>
+					<radiogroup id="yousound-label-mode">
+						<box orient="horizontal">
+							<radio accesskey="C" label="Clicar no texto" value="mouseClique" 
+								tooltiptext="Captura o texto com o botao esquerdo do mouse." 
+								oncommand="YouSoundChrome.BrowserOverlay.sayHello(event);"/>
+
+							<radio accesskey="S" label="Selecao de texto" value="mouseSelecao" 
+								tooltiptext="Captura o texto a partir de uma selecao do usuario." 
+								oncommand="YouSoundChrome.BrowserOverlay.sayHello(event);"/>
+
+							<radio accesskey="T" label="Teclado" value="teclado" 
+								tooltiptext="Percorre o site com as setas direcionais do teclado." 
+								oncommand="YouSoundChrome.BrowserOverlay.sayHello(event);"/>	
+						</box>
+					</radiogroup>
+			</groupbox>
+		<progressmeter id="loadingVoice" mode="undetermined" value="40" style="margin: 20px 5px 20px;"/>
+		<textbox id="result-copy" style="width: 500px; margin: 10px 5px 10px;" value="=D"/>
+	</toolbar>
+  </toolbox>
+</overlay>

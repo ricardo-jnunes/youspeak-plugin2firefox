@@ -1,0 +1,27 @@
+﻿<?xml version="1.0"?>
+
+<?xml-stylesheet type="text/css" href="chrome://global/skin/" ?>
+<?xml-stylesheet type="text/css" ?>  
+  
+<prefwindow title="Options"  xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+	<prefpane label="Options">
+	  <preferences>
+		<preference id="yousound-autorun" name="extensions.yousound.autorun" type="bool"/>
+	  </preferences>
+		<groupbox>
+			<caption label="=D"/>
+			<grid>
+				<columns>
+					<column flex="4"/>
+					<column flex="1"/>
+				</columns>
+				<rows>
+					<row>
+						<label control ="autorun" value="Iniciar com o navegador"/>
+						<checkbox id="autorun" preference="yousound-autorun" accesskey="N" />
+					</row>
+				</rows>
+			</grid>
+		</groupbox>
+    </prefpane>
+</prefwindow >
