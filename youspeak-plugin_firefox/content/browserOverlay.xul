@@ -1,9 +1,5 @@
 ﻿<?xml version="1.0"?>
 
-<?xml-stylesheet type="text/css" href="chrome://global/skin/" ?>
-<?xml-stylesheet type="text/css"
-  href="chrome://yousound/skin/browserOverlay.css" ?>
-
 <!DOCTYPE overlay SYSTEM
   "chrome://yousound/locale/browserOverlay.dtd">
 
@@ -15,6 +11,7 @@
   <script type="application/x-javascript" src="chrome://yousound/content/functionsYouSound.js"></script>
   <script type="application/x-javascript" src="chrome://yousound/content/browserOverlay.js"></script>
   <script type="application/x-javascript" src="chrome://yousound/content/speakClient.js"></script>
+  <script type="application/x-javascript" src="chrome://yousound/content/mespeak.js"></script> 
 
   <toolbox>
 	<toolbar id="yousound-toolbar">

@@ -50,15 +50,19 @@ YouSoundChrome.YouSpeak = {
 		
 		var speakWorker;
 		try {
-		  speakWorker = new Worker("chrome://yousound/content/speakWorker.js");
+		//  speakWorker = new Worker("chrome://yousound/content/speakWorker.js");
+		//	meSpeak.loadConfig("chrome://yousound/content/mespeak_config.json");
+		//	meSpeak.loadVoice("chrome://yousound/content/voices/en/en.json"); 
+			meSpeak.speak('teste');
 		} catch(e) {
-		  console.log('speak.js warning: no worker support - ' + e);
+		  console.log('meSpeak.js warning: not worked - ' + e);
 		}
 						
 	},
 	hello : function (text, args) {
 
-		text = "Welcome";
+		text = $('#result-copy').val();
+		//text = "Welcome";
 		  function parseWav(wav) {
 			function readInt(i, bytes) {
 			  var ret = 0;
@@ -185,6 +189,11 @@ YouSoundChrome.InsertJS = function(){
 			scriptElem.src = 'chrome://yousound/content/speakClient.js'; 
 			content.document.getElementsByTagName('head')[0].appendChild(scriptElem);
 			
+			var scriptElem = content.document.createElement("script"); 
+			scriptElem.type = "text/javascript"; 
+			scriptElem.src = 'chrome://yousound/content/mespeak.js'; 
+			content.document.getElementsByTagName('head')[0].appendChild(scriptElem);
+						
 			var scriptElem = content.document.createElement("div"); 
 			scriptElem.id = "audio"; 
 			content.document.getElementsByTagName('body')[0].appendChild(scriptElem);
@@ -197,4 +206,4 @@ YouSoundChrome.InsertJS = function(){
 		}
 	};
 }();
-window.addEventListener("load", YouSoundChrome.InsertJS.init, false);
+//window.addEventListener("load", YouSoundChrome.InsertJS.init, false);

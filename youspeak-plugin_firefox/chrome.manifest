@@ -1,4 +1,3 @@
-content   yousound                content/
 content   yousound                content/ contentaccessible=yes
 skin      yousound  classic/1.0   skin/
 locale    yousound  pt-BR         locale/pt-BR/
