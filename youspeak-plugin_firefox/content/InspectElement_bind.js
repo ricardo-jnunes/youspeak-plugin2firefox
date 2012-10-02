@@ -1,4 +1,4 @@
-ï»¿ var textotest = new String("Banzeh");
+ï»¿ var textotest = new String("null");
  var YStexto = {
 		criaCookie: function(){
 				var tmp = '';
@@ -8,7 +8,7 @@
 				//IE
 				}else if(document.selection){
 					tmp = document.selection.createRange().text;
-				//Pior que o IE oO... existe?
+				//Pior que o IE oO?
 				}else{
 					tmp = "Seu browser nÃ£o suporta a seleÃ§Ã£o de texto!";
 				}
@@ -117,7 +117,7 @@
 	$(document).ready(function() {
 		 
     /**
-     * Copiando seleção
+     * Copiando seleï¿½ï¿½o
      
     $('button').click(function(){
  
@@ -131,12 +131,12 @@
             texto = document.selection.createRange().text;
         //Pior que o IE oO... existe?
         }else{
-            texto = "Seu browser é paia... não dá para fazer isto!";
+            texto = "Seu browser ï¿½ paia... nï¿½o dï¿½ para fazer isto!";
         }
         /**
-         * Checa se o texto está em branco
+         * Checa se o texto estï¿½ em branco
          *
-        if(texto == '') texto = "Você deve selecionar algum texto para testar!";
+        if(texto == '') texto = "Vocï¿½ deve selecionar algum texto para testar!";
  
         /**
          * "Cola" o texto

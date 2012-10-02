@@ -7243,3 +7243,6 @@ else{if(window.console)console.log('Failed to load config-data from '+this.url+'
 else{if(window.console)console.log('Failed to load config-data from '+this.url+': Received status '+req.status+'.');}
 this.request=this.handler=this.userCallback=null;}}
 return{speak:speak,loadConfig:loadConfig,loadVoice:loadVoice,setDefaultVoice:setDefaultVoice,getDefaultVoice:getDefaultVoice,isConfigLoaded:isConfigLoaded,isVoiceLoaded:isVoiceLoaded,resetQueue:resetQueue}})();
+//meSpeak.loadConfig("mespeak_config.json");
+//meSpeak.loadVoice("voices/pt.json");
+
