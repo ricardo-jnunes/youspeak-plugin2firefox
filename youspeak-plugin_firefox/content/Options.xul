@@ -1,15 +1,13 @@
 ﻿<?xml version="1.0"?>
-
 <?xml-stylesheet type="text/css" href="chrome://global/skin/" ?>
-<?xml-stylesheet type="text/css" ?>  
   
-<prefwindow title="Options"  xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
-	<prefpane label="Options">
+<prefwindow title="Preferências do YouSpeak-Plugin"  xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+	<prefpane label="Preferências do YouSpeak-Plugin">
 	  <preferences>
-		<preference id="yousound-autorun" name="extensions.yousound.autorun" type="bool"/>
+		<preference id="youspeak-autorun" name="extensions.youspeakplugin.autorun" type="bool"/>
 	  </preferences>
 		<groupbox>
-			<caption label="=D"/>
+			<caption label="Definições"/>
 			<grid>
 				<columns>
 					<column flex="4"/>
@@ -17,8 +15,8 @@
 				</columns>
 				<rows>
 					<row>
-						<label control ="autorun" value="Iniciar com o navegador"/>
-						<checkbox id="autorun" preference="yousound-autorun" accesskey="N" />
+						<label control="autorun" value="Iniciar com o navegador"/>
+						<checkbox id="autorun" preference="youspeak-autorun"/>
 					</row>
 				</rows>
 			</grid>

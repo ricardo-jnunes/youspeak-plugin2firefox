@@ -18,7 +18,7 @@
   
 		  if(log) {
 
-			console.log(tag + ' ' + content); 
+			console.log(tag + ' ' + content);
 	  
 		  } else {
 		  

@@ -5,13 +5,13 @@
 
   <Description about="urn:mozilla:install-manifest">
     <em:id>teste@teste.com</em:id>
-    <em:name>YouSound</em:name>
+    <em:name>YouSpeak-Plugin</em:name>
     <em:description>Bem Vindo ao YouSound!</em:description>
     <em:version>0.1</em:version>
+	<em:type>2</em:type>
     <em:creator>Ricardo J. Nunes</em:creator>
     <em:homepageURL></em:homepageURL>
 	<em:optionsURL>chrome://yousound/content/Options.xul</em:optionsURL>
-    <em:type>2</em:type>
 
     <!-- Mozilla Firefox -->
     <em:targetApplication>

@@ -1,4 +1,5 @@
-﻿ var textotest = new String("null");
+﻿ var capturaTexto = new String("null");
+ var bindTexto= '';
  var YStexto = {
 		criaCookie: function(){
 				var tmp = '';
@@ -8,7 +9,6 @@
 				//IE
 				}else if(document.selection){
 					tmp = document.selection.createRange().text;
-				//Pior que o IE oO?
 				}else{
 					tmp = "Seu browser não suporta a seleção de texto!";
 				}
@@ -16,13 +16,19 @@
 				 * Verifica se o texto está em branco
 				 */
 				if(tmp == ''){
-					tmp = "Você deve selecionar algum texto para testar!";
+					tmp = "Você deve selecionar algum texto!";
+					if(bindTexto == ''){
+					//
+					}else{
+						tmp = bindTexto;
+					}
 				}
-				textotest = escape(tmp);
-				document.cookie = "yousound=" + textotest;
+				capturaTexto = escape(tmp);
+				document.cookie = "youspeak=" + capturaTexto;
+				bindTexto='';
 		},
 		deletaCookie: function(){
-			document.cookie = "yousound="+""+"-1";
+			document.cookie = "youspeak="+""+"-1";
 		}
 	};
 (function($)
@@ -66,7 +72,7 @@
 								if( result ){
 									// busca novamente, só que agora adicionando a marcação ao(s) termo(s)
 									re = new RegExp( content, 'gi' );
-									content = ('<span>' + '</span>');
+									content = ('<span tabindex="0">' + '</span>');
 									//content = content.replace( re, '<span>' + content + '</span>');
 									//altera o HTML do elemento original
 									//$(nodes[a].nodeValue).html( content );
@@ -88,16 +94,28 @@
 		}else{
 			if(e.target.nodeName == "IMG" || e.target.nodeName == "INPUT"){
 				if(e.target.nodeName == "IMG"){
-					alert(e.target.alt);
+					//alert(e.target.alt);
+					//YouSoundChrome.BrowserOverlay.PassaValor(e.target.alt);
+					bindTexto = "Imagem " + e.target.alt;
 				}
 				if(e.target.nodeName == "INPUT"){
-					alert(e.target.value);
+					//alert(e.target.value);
+					if(e.target.type == "text"){
+						bindTexto = "Edição " + e.target.value;
+					}else{
+						bindTexto = "Botão " + e.target.value;
+					}
 				}
 			}else{
 				if(e.target.nodeName == "HTML"){
 					//
 				}else{
-					alert(e.target.textContent);
+					//alert(e.target.textContent);
+					if(e.target.nodeName == "A"){
+						bindTexto = "Linque " + e.target.textContent;
+					}else{
+						bindTexto = e.target.textContent;
+					}
 				}
 				// $el.css('border', '1px black solid');
 				// $($el).marcaTexto($($el).text());
@@ -115,50 +133,33 @@
 	var cont = 0;
 	var nodes1 = new Array();
 	$(document).ready(function() {
-		 
-    /**
-     * Copiando sele��o
-     
-    $('button').click(function(){
- 
-        var texto;
- 
-        //Browsers decentes
-        if(window.getSelection) {
-            texto = String(window.getSelection());
-        //IE
-        }else if(document.selection){
-            texto = document.selection.createRange().text;
-        //Pior que o IE oO... existe?
-        }else{
-            texto = "Seu browser � paia... n�o d� para fazer isto!";
-        }
-        /**
-         * Checa se o texto est� em branco
-         *
-        if(texto == '') texto = "Voc� deve selecionar algum texto para testar!";
- 
-        /**
-         * "Cola" o texto
-         *
-        $('#colar').html(texto);
-    });*/
 
 		function textnodes(){
 			function iterate(node){
 				var nodes=node.childNodes
 				var len=nodes.length
 				for(var a=0;a<len;a++){
-					if(nodes[a].nodeType==3 || nodes[a].nodeName=="INPUT" || nodes[a].nodeName=="IMG"){
-						if(nodes[a].nodeName=="INPUT" || nodes[a].nodeName=="IMG"){
+					if(nodes[a].nodeType==3 || nodes[a].nodeName=="INPUT" || nodes[a].nodeName=="IMG" || nodes[a].nodeName=="A"){
+						if(nodes[a].nodeName=="INPUT" || nodes[a].nodeName=="IMG" || nodes[a].nodeName=="A"){
 							if(nodes[a].nodeName=="INPUT"){
-								var content = nodes[a].value;
-								nodes1[cont] = content;
-								cont++;
+								if(nodes[a].type == "text"){
+									var content = nodes[a].value;
+									nodes1[cont] = "Edição " + content;
+									cont++;
+								}else{
+									var content = nodes[a].value;
+									nodes1[cont] = "Botão " + content;
+									cont++;
+								}
 							}
 							if(nodes[a].nodeName=="IMG"){
 								var content = nodes[a].alt;
-								nodes1[cont] = content;
+								nodes1[cont] = "Imagem " + content;
+								cont++;
+							}
+							if(nodes[a].nodeName=="A"){
+								var content = nodes[a].textContent;
+								nodes1[cont] = "Linque " + content;
 								cont++;
 							}
 						}else{
@@ -201,33 +202,40 @@
 		}
 		if (keyCode == 40) { //down Arrow
 			if(nodes1[percorre] == 'undefined' || nodes1[percorre] == null || nodes1[percorre] == ''){
-				alert('Fim da Página');
+				//alert('Fim da Página');
+				meSpeak.speak("Fim do documento");
 				percorre--;
 			}else{
-				alert(nodes1[percorre]);
+				//alert(nodes1[percorre]);
+				bindTexto = nodes1[percorre];
+				meSpeak.speak(bindTexto);
 			}
 			percorre++;
+			//e.preventDefault();
 		}
 		
 		if (keyCode == 38) { // up Arrow
 			percorre--;
 			if(percorre < 0){
 				percorre = 0;
-				alert('Topo da Página');
+				meSpeak.speak("Início do documento");
 			}else{
-				alert(nodes1[percorre]);
+				bindTexto = nodes1[percorre];
+				meSpeak.speak(bindTexto);
 			}	
+			//e.preventDefault();
 		}
 			console.log(e);
-			e.preventDefault();
+			//e.preventDefault();
     });
 	
 	$(document).mouseenter(function(){
 		//$("body").toggleClass('NOqwertymk');
-		$("body").removeClass('qwertymk').addClass('NOqwertymk');
+		//$("body").removeClass('qwertymk').addClass('NOqwertymk');
     }).mouseleave(function(){
-	YStexto.criaCookie();
+		YStexto.criaCookie();
 		//$("body").toggleClass('qwertymk');
-		$("body").removeClass('NOqwertymk').addClass('qwertymk');
+		//$("body").removeClass('NOqwertymk').addClass('qwertymk');
     });
+
 })(jQuery)

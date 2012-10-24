@@ -4,30 +4,29 @@
   "chrome://yousound/locale/browserOverlay.dtd">
 
 <overlay id="yousound-browser-overlay"
-  xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+  xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+  xmlns:html="http://www.w3.org/1999/xhtml">
+  <script type="application/x-javascript" src="chrome://yousound/content/youspeak.js"></script>
   <script type="application/x-javascript" src="chrome://yousound/content/jquery.js"></script>
   <script type="application/x-javascript" src="chrome://yousound/content/InspectElement.js"></script>
   <script type="application/x-javascript" src="chrome://yousound/content/InspectElement_bind.js"></script>
-  <script type="application/x-javascript" src="chrome://yousound/content/functionsYouSound.js"></script>
   <script type="application/x-javascript" src="chrome://yousound/content/browserOverlay.js"></script>
-  <script type="application/x-javascript" src="chrome://yousound/content/speakClient.js"></script>
-  <script type="application/json" src="chrome://yousoud/content/mespeak_config.json"></script> 
+  
+  <script type="application/x-javascript" src="chrome://yousound/content/mespeak.js"></script>
+  <script type="application/json" src="chrome://yousound/content/mespeak_config.json"></script> 
   <script type="application/json" src="chrome://yousound/content/voices/pt.json"></script> 
-	
+  <keyset>
+	<key id="youspeak-run-key" modifiers="accel alt shift" key="Y" oncommand="YouSpeakPlugin.run()" />
+  </keyset>
   <toolbox>
 	<toolbar id="yousound-toolbar">
 		<toolbarbutton id="yousound-label-init" accesskey="I" label="Inserir o JS"
 			oncommand="YouSoundChrome.InsertJS.run();"/>
-			<toolbarbutton id="yousound-label-load1" label="load config"
-			oncommand="YouSoundChrome.meSpeak.loadConfig('chrome://yousound/content/mespeak_config.json');"/>
-		<toolbarbutton id="yousound-label-load2" label="load voice"
-			oncommand="YouSoundChrome.meSpeak.loadVoice('chrome://yousound/content/voices/pt.json');"/>
-		<toolbarbutton id="yousound-label" accesskey="W" label="Worker"
-			oncommand="YouSoundChrome.meSpeak.speak('testando');"/>
-		<toolbarbutton id="yousound-label-espeak" accesskey="Y" label="You Sound"
-			oncommand="YouSoundChrome.YouSpeak.hello(event);"/>
-		<toolbarbutton id="yousound-label-copy" label="Copy"
-			oncommand="YouSoundChrome.BrowserOverlay.YSCopy();"/>
+		<toolbarbutton id="yousound-label-speak" accesskey="W" label="YouSpeak"
+			oncommand="YouSoundChrome.meSpeak.speak('');"/>
+		<toolbarbutton id="yousound-label-speak-service" label="YouSpeak Service"
+			oncommand="YouSoundChrome.BrowserOverlay.YSService();"/>
+
 		<groupbox>
 			<caption label="Modo"/>
 				<radiogroup id="yousound-label-mode">
