@@ -33,8 +33,8 @@
 	};
 (function($)
 {
-    $('<style type="text/css">.qwertymk{border: 2px black solid} .NOqwertymk{border: none}</style>')
-    .appendTo('head');
+    //$('<style type="text/css">.qwertymk{border: 2px black solid} .NOqwertymk{border: none}</style>')
+    //.appendTo('head');
     
     function aimedAt(evt){
         var $targ = $(evt.originalEvent.explicitOriginalTarget);  //This worked when it was a click event
