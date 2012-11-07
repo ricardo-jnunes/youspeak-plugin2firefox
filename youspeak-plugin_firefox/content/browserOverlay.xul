@@ -11,14 +11,11 @@
   <script type="application/x-javascript" src="chrome://yousound/content/InspectElement.js"></script>
   <script type="application/x-javascript" src="chrome://yousound/content/InspectElement_bind.js"></script>
   <script type="application/x-javascript" src="chrome://yousound/content/browserOverlay.js"></script>
-  <script type="application/x-javascript" src="chrome://yousound/content/worker.js"></script>
 
   <script type="application/json" src="chrome://yousound/content/mespeak_config.json"></script> 
   <script type="application/json" src="chrome://yousound/content/voices/pt.json"></script> 
   <script type="application/x-javascript" src="chrome://yousound/content/mespeak.js"></script>
-  <keyset>
-	<key id="youspeak-run-key" modifiers="accel alt shift" key="Y" oncommand="YouSpeakPlugin.run()" />
-  </keyset>
+
   <toolbox>
 	<toolbar id="yousound-toolbar">
 		<toolbarbutton id="yousound-label-loading">

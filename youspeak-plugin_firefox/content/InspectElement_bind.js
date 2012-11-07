@@ -121,13 +121,11 @@
 				// $($el).marcaTexto($($el).text());
 			}
 		}
+			YStexto.criaCookie();
 			console.log($el);
 			e.preventDefault();
     });
-	//Selecao de Texto
-	
 
-	//Fim Selecao de Texto
 	
 	var percorre = 0;
 	var cont = 0;
@@ -231,13 +229,13 @@
 			//e.preventDefault();
     });
 	
-	$(document).mouseenter(function(){
+	//$(document).mouseenter(function(){
 		//$("body").toggleClass('NOqwertymk');
 		//$("body").removeClass('qwertymk').addClass('NOqwertymk');
-    }).mouseleave(function(){
-		YStexto.criaCookie();
+    //}).mouseleave(function(){
+		//YStexto.criaCookie();
 		//$("body").toggleClass('qwertymk');
 		//$("body").removeClass('NOqwertymk').addClass('qwertymk');
-    });
+   // });
 
 })(jQuery)
