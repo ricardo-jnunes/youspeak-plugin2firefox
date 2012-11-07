@@ -202,13 +202,14 @@
 		}
 		if (keyCode == 40) { //down Arrow
 			if(nodes1[percorre] == 'undefined' || nodes1[percorre] == null || nodes1[percorre] == ''){
-				//alert('Fim da Página');
-				meSpeak.speak("Fim do documento");
+				bindTexto ="Fim do documento";
+				YStexto.criaCookie();
 				percorre--;
 			}else{
 				//alert(nodes1[percorre]);
 				bindTexto = nodes1[percorre];
-				meSpeak.speak(bindTexto);
+				YStexto.criaCookie();
+
 			}
 			percorre++;
 			//e.preventDefault();
@@ -218,11 +219,12 @@
 			percorre--;
 			if(percorre < 0){
 				percorre = 0;
-				meSpeak.speak("Início do documento");
+				bindTexto ="Início do documento";
+				YStexto.criaCookie();
 			}else{
 				bindTexto = nodes1[percorre];
-				meSpeak.speak(bindTexto);
-			}	
+				YStexto.criaCookie();
+			}
 			//e.preventDefault();
 		}
 			console.log(e);
